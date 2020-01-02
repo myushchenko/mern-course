@@ -11,15 +11,10 @@ A project that provide ability to build shrinked links. Also implemented authori
 ```
 docker run --name mongodb -p 27017:27017 -d mongo
 ```
-2) Run Node server
+2) Run server and React App concurrently
 ```
 cd server
-npm run start
-```
-3) Run React client
-```
-cd client
-npm run start
+npm run dev
 ```
 4) Open http://localhost:3001
 
