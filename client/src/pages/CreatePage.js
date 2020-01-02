@@ -2,11 +2,13 @@ import React, { useEffect, useState, useContext } from "react";
 import { useHttp } from "../hooks/http.hook";
 import { AuthContext } from "../context/AuthContext";
 import { useHistory } from "react-router-dom";
+import { useMessage } from "../hooks/message.hook";
 
 export const CreatePage = () => {
   const history = useHistory();
+  const message = useMessage();
   const auth = useContext(AuthContext);
-  const { request } = useHttp();
+  const { request, error } = useHttp();
   const [link, setLink] = useState("");
 
   const pressHandler = async event => {
@@ -31,6 +33,10 @@ export const CreatePage = () => {
   useEffect(() => {
     window.M.updateTextFields();
   }, []);
+
+  useEffect(() => {
+    message(error);
+  }, [error, message]);
 
   return (
     <div className="row">

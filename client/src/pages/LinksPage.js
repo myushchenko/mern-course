@@ -4,10 +4,12 @@ import { useHttp } from "../hooks/http.hook";
 import { AuthContext } from "../context/AuthContext";
 import { Loader } from "../components/Loader";
 import { LinkList } from "../components/LinkList";
+import { useMessage } from "../hooks/message.hook";
 
 export const LinksPage = () => {
+  const message = useMessage();
   const [links, setLinks] = useState([]);
-  const { request, loading } = useHttp();
+  const { request, loading, error } = useHttp();
   const { token } = useContext(AuthContext);
 
   const fetchLinks = useCallback(async () => {
@@ -15,7 +17,6 @@ export const LinksPage = () => {
       const fetched = await request("/api/link", "GET", null, {
         Authorization: `Bearer ${token}`
       });
-      console.log("[UI] LinksPage: ", fetched);
       setLinks(fetched);
     } catch (e) {}
   }, [token, request]);
@@ -23,6 +24,10 @@ export const LinksPage = () => {
   useEffect(() => {
     fetchLinks();
   }, [fetchLinks]);
+
+  useEffect(() => {
+    message(error);
+  }, [error, message]);
 
   if (loading) {
     return <Loader />;

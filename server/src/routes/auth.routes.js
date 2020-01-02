@@ -14,7 +14,6 @@ router.post(
   ],
   async (req, res) => {
     try {
-      console.log("body: ", req.body);
       const erros = validationResult(req);
 
       if (!erros.isEmpty()) {
@@ -52,6 +51,7 @@ router.post(
   ],
   async (req, res) => {
     try {
+      console.log("body: ", req);
       const erros = validationResult(req);
 
       if (!erros.isEmpty()) {

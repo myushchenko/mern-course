@@ -17,7 +17,7 @@ module.exports = (req, res, next) => {
     req.user = decoded;
     next();
   } catch (e) {
-    console.log(e);
+    console.log("[Node][auth.middleware] error: ", e);
     res.status(401).json({ message: "No Authorization" });
   }
 };

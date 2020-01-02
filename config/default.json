@@ -1,7 +1,0 @@
-{
-    "port": 5000,
-    "jwtSecret": "myushchenko_token",
-    "mongoUrl": "mongodb://localhost:27017/mern",
-    "mongoUrl2": "mongodb+srv://admin:admin@cluster0-enmqm.azure.mongodb.net/app?retryWrites=true&w=majority",
-    "baseUrl": "http://localhost:5000"
-}

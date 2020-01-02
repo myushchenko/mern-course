@@ -1,0 +1,6 @@
+{
+  "port": 4000,
+  "jwtSecret": "myushchenko_token",
+  "mongoUrl": "mongodb://database:27018/mern",
+  "baseUrl": "http://localhost:4000"
+}
